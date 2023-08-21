@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST" novalidate>
+  {% csrf_token %}
+  <h2>Login</h2>
+  {{form.as_p}} <!-- forms.py에 있는거 하나당 기본으로 p태그 만들겠다 -->
+  <input type="submit" value="Login" />
+  <p> Don't have an account? <a href="{% url 'user:register' %}">Register</a> </p>
+</form>
+{% endblock content %}
