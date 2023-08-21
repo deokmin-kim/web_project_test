@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}세미 프로젝트{% endblock %}
+
+{% block content %}
+<div id="wrapper">
+    <header>
+        <div class="content">
+            <h1><a href="#">Shopping Mall</a></h1>
+            <p>
+                <a href="">페이스북</a>&nbsp;
+                <a href="">인스타그램</a>&nbsp;
+                <a href="">네이버</a>&nbsp;
+
+
+
+            </p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="content">
+            <ul>
+                <li><a href="#">BEST 20</a></li>
+                <li><a href="#">NEW</a></li>
+                <li><a href="#">OUTER</a></li>
+                <li><a href="#">TOP</a></li>
+                <li><a href="#">BOTTOM</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="mainSlide">    <!-- width 100% -->
+            <img src="{% static 'images/slide.jpg' %}" alt="">
+        </div>
+
+        <div class="content">
+            <section class="bannerWrap">
+                <h2 class="hidden">banner 영역</h2>
+                <ul>
+                    <li><a href="#"><img src="{% static 'images/banner1.jpg' %}" alt=""></a></li>
+                    <li><a href="#"><img src="{% static 'images/banner2.jpg' %}" alt="당일배송"></a></li>
+					<li><a href="#"><img src="{% static 'images/banner3.jpg' %}" alt=""></a></li>
+					<li><a href="#"><img src="{% static 'images/banner4.jpg' %}" alt="당일배송"></a></li>
+                </ul>
+            </section>
+
+            <section class="productWrap">
+                <h2>BEST ITEMS</h2>
+                <p>이번 한 주간 인기상품을 확인해보세요</p>
+                <ul>
+                    <li><a href="#"><img src="{% static 'images/product1.gif' %}" alt="에트로 원피스"></a></li>
+					<li><a href="#"><img src="{% static 'images/product2.gif' %}" alt=""></a></li>
+					<li><a href="#"><img src="{% static 'images/product3.gif' %}" alt=""></a></li>
+					<li><a href="#"><img src="{% static 'images/product3.gif' %}" alt=""></a></li>
+					<li><a href="#"><img src="{% static 'images/product1.gif' %}" alt=""></a></li>
+					<li><a href="#"><img src="{% static 'images/product2.gif' %}" alt=""></a></li>
+					<li><a href="#"><img src="{% static 'images/product3.gif' %}" alt=""></a></li>
+					<li><a href="#"><img src="{% static 'images/product3.gif' %}" alt=""></a></li>
+                </ul>
+            </section>
+
+            <section class="productWrap">
+                <h2>NEW ITEMS</h2>
+                <p>이번 한 주간 신규상품을 확인해보세요</p>
+                <ul>
+                    <li><a href="#"><img src="{% static 'images/product1.gif' %}" alt=""></a></li>
+					<li><a href="#"><img src="{% static 'images/product2.gif' %}" alt=""></a></li>
+					<li><a href="#"><img src="{% static 'images/product3.gif' %}" alt=""></a></li>
+					<li><a href="#"><img src="{% static 'images/product3.gif' %}" alt=""></a></li>
+					<li><a href="#"><img src="{% static 'images/product1.gif' %}" alt=""></a></li>
+					<li><a href="#"><img src="{% static 'images/product2.gif' %}" alt=""></a></li>
+					<li><a href="#"><img src="{% static 'images/product3.gif' %}" alt=""></a></li>
+					<li><a href="#"><img src="{% static 'images/product3.gif' %}" alt=""></a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <aside>
+        <ul>
+            <li><a href="#">검색</a></li>
+            <li><a href="#">장바구니</a></li>
+            <li><a href="#">배송조회</a></li>
+        </ul>
+    </aside>
+
+    <footer>
+        <div class="content">
+            세미 프로젝트 2조
+        </div>
+    </footer>
+</div>
+{% endblock %}

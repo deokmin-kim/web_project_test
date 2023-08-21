@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}주문 정보{% endblock %}
+
+{% block content %}
+    <h1>주문 정보</h1>
+    <p>주문 ID: {{ order.id }}</p>
+    <p>사용자: {{ order.user }}</p>
+    <p>상품: {{ order.product }}</p>
+    <p>수량: {{ order.quantity }}</p>
+    <p>등록 날짜: {{ order.created_dt }}</p>
+{% endblock %}
