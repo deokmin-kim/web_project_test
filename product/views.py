@@ -15,3 +15,12 @@ def product_detail(request, pk):
     # get_object_or_404(Product, pk=pk)는 데이터베이스에서 주어진 기본 키에 해당하는 Product 객체를 가져오거나,
     # 해당 객체가 존재하지 않을 경우 404 오류를 발생시킵니다.
     # 이렇게 가져온 상품 객체는 'product/product_detail.html' 템플릿에 'product'라는 이름으로 전달되어 렌더링됩니다.
+
+def contact_page(request):
+    return render(request, 'product/contact.html')
+
+def shop_page(request):
+    return render(request, 'product/shop.html')
+
+def shop_detail_page(request):
+    return render(request, 'product/detail.html')

@@ -29,3 +29,7 @@ def cart_detail(request):
     total_price = sum(item.product.price * item.quantity for item in cart_items)
 
     return render(request, 'cart/cart.html', {'cart_items': cart_items, 'total_price': total_price})
+
+@login_required
+def checkout_cart(request): # main_page 함수는 웹사이트의 메인 페이지를 렌더링하는 부분입니다.
+    return render(request, 'cart/checkout.html')
