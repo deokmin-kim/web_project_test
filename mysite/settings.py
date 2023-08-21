@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "user","product","order","cart",
     "django_bootstrap5",
+    "sass_processor",
 
 ]
 
@@ -123,6 +124,15 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+
+SASS_PROCESSOR_ENABLED = True
+SASS_PROCESSOR_ROOT = os.path.join(BASE_DIR, 'static')
+
+SASS_PROCESSOR_INCLUDE_DIRS = [
+    os.path.join(BASE_DIR, 'myapp/static/myapp/scss'),
+]
+SASS_OUTPUT_STYLE = 'compact'
+SASS_PRECISION = 8
 import os # 추가 
 # 추가
 STATICFILES_DIRS = [
