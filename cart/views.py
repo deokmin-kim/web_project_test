@@ -28,4 +28,4 @@ def cart_detail(request):
     cart_items = CartItem.objects.filter(user=user)
     total_price = sum(item.product.price * item.quantity for item in cart_items)
 
-    return render(request, 'cart/cart_detail.html', {'cart_items': cart_items, 'total_price': total_price})
+    return render(request, 'cart/cart.html', {'cart_items': cart_items, 'total_price': total_price})
