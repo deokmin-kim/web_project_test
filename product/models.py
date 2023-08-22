@@ -6,6 +6,8 @@ class Product(models.Model):
     description = models.TextField(verbose_name='상품설명') # 텍스트 필드
     stock = models.IntegerField(verbose_name='재고') # 정수 필드
     created_dt = models.DateTimeField(auto_now_add=True, verbose_name='등록날짜')
+    image = models.ImageField(upload_to='product/images/',blank=False, verbose_name='상품이미지', default='default_image.jpg')
+
     # 상품이 등록된 날짜와 시간을 나타내는 날짜 및 시간 필드입니다.
     # auto_now_add 매개변수가 True로 설정되어 있으므로, 새 상품이 생성될 때 자동으로 등록 시간이 설정됩니다.
     def __str__(self):
@@ -20,3 +22,8 @@ class Product(models.Model):
     	verbose_name_plural = '상품'
         # db_table은 실제 데이터베이스 테이블의 이름을 설정하고,
         # verbose_name과 verbose_name_plural은 모델의 단수와 복수형 표시 이름을 설정합니다.
+
+
+# class ImageUpload(models.Model):
+#     title = models.CharField(max_length=100)
+#     image = models.ImageField(upload_to='images/')

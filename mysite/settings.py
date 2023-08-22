@@ -138,3 +138,14 @@ import os # 추가
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+MEDIA_URL = '/media/'
+
+# 미디어 파일이 실제로 저장될 디렉토리 경로
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# models.py 파일의 image 필드 설정을 보면 upload_to='product/images/'로 되어 있습니다.
+# 이 설정은 이미 MEDIA_ROOT 아래의 media 디렉토리에 이미지를 저장하는 설정입니다.
+# 따라서, 이미지 업로드 시에는 상대적인 경로인 product/images/만 사용하면 됩니다.
+# 하지만 실제로 URL을 형성할 때는 MEDIA_URL과 upload_to가 결합되어야 합니다.
+# 따라서, settings.py 파일의 MEDIA_URL 설정이 /media/인 경우,
+# URL은 /media/ 뒤에 product/images/를 붙여서 형성되어야 합니다.
