@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<h2>Search Results for "{{ query }}"</h2>
+<ul>
+    {% for product in products %}
+    <li>
+        <h3><a href="{% url 'product:product_detail' product.id %}">{{ product.name }}</a></h3>
+        <p>{{ product.description }}</p>
+    </li>
+    {% empty %}
+    <p>No results found.</p>
+    {% endfor %}
+</ul>
+{% endblock %}

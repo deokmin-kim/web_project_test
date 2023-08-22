@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product
+from django.db.models import Q
 
 def main_page(request): # main_page 함수는 웹사이트의 메인 페이지를 렌더링하는 부분입니다.
     return render(request, 'product/index.html')
@@ -24,3 +25,16 @@ def shop_page(request):
 
 def shop_detail_page(request):
     return render(request, 'product/detail.html')
+
+def search_results(request):
+    query = request.GET.get('q')  # 검색어 가져오기
+    products = Product.objects.filter(
+        Q(name__icontains=query) |  # 제품명에 검색어 포함
+        Q(description__icontains=query)  # 설명에 검색어 포함
+    ).distinct()
+    context = {'products': products, 'query': query}
+    return render(request, 'product/search.html', context)
+
+def product_carousel(request):
+    products = Product.objects.all()  # 상품 데이터 가져오기
+    return render(request, 'detail.html', {'products': products})
