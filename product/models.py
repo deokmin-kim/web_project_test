@@ -17,13 +17,23 @@ class Product(models.Model):
     # 즉, 상품 객체가 문자열로 표시될 때는 해당 상품의 이름이 사용됩니다.
 
     class Meta:
-    	db_table = 'my_product'
-    	verbose_name = '상품'
-    	verbose_name_plural = '상품'
+        db_table = 'my_product'
+        verbose_name = '상품'
+        verbose_name_plural = '상품'
         # db_table은 실제 데이터베이스 테이블의 이름을 설정하고,
         # verbose_name과 verbose_name_plural은 모델의 단수와 복수형 표시 이름을 설정합니다.
 
 
-# class ImageUpload(models.Model):
-#     title = models.CharField(max_length=100)
-#     image = models.ImageField(upload_to='images/')
+class Size(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='sizes')
+    value = models.CharField(max_length=10, verbose_name='사이즈 값', choices=[
+        ('220', '220'),
+        ('230', '230'),
+        ('240', '240'),
+        ('250', '250'),
+        ('260', '260'),
+        ('270', '270'),
+    ])
+
+    def __str__(self):
+        return self.value
