@@ -39,7 +39,16 @@ def cart_detail(request):
 
 @login_required
 def checkout_cart(request): # main_page 함수는 웹사이트의 메인 페이지를 렌더링하는 부분입니다.
-    return render(request, 'cart/checkout.html')
+    user = request.user
+    cart_items = CartItem.objects.filter(user=user)
+
+    # 각 cart_item의 total_price를 계산하여 추가합니다.
+    for cart_item in cart_items:
+        cart_item.total_price = cart_item.product.price * cart_item.quantity
+
+    total_price = sum(cart_item.total_price for cart_item in cart_items)
+
+    return render(request, 'cart/checkout.html', {'cart_items': cart_items, 'total_price': total_price})
 
 # 0823 장바구니 삭제하는 view항목 추가
 @login_required
