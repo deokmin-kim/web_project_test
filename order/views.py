@@ -4,6 +4,7 @@ from product.models import Product
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
+from .models import Notice
 # get_user_model(): 이 함수는 현재 사용되고 있는 사용자 모델 클래스를 가져옵니다.
 @login_required
 def create_order(request):
@@ -46,3 +47,8 @@ def view_order(request, order_id):
 def order_list(request):
     orders = Order.objects.all()
     return render(request, 'order/order_list.html', {'orders': orders})
+
+def notice_list(request):
+    notices = Notice.objects.all().order_by('-created_at')
+    context = {'notices': notices}
+    return render(request, 'notice/notice_list.html', context)

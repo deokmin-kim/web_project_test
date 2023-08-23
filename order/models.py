@@ -20,3 +20,11 @@ class Order(models.Model): # 데이터베이스의 테이블과 필드를 정의
         verbose_name = '주문임'
         verbose_name_plural = '주문임'
         # 복수형 지정안하면 "주문s"가 되는데요. s붙이지 않기 위해서 그렇다.
+
+class Notice(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title

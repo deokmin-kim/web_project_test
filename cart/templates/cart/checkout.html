@@ -146,7 +146,7 @@
                         {% for cart_item in cart_items %}
                             <div class="d-flex justify-content-between">
                                 <p>{{ cart_item.product.name }}</p>
-                                <p>${{ cart_item.total_price }}</p>
+                                <p>{{ cart_item.total_price }}원</p>
                             </div>
                         {% endfor %}
                         <hr class="mt-0">

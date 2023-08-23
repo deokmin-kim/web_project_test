@@ -27,22 +27,13 @@
 </head>
 
 <body>
-<!--  	<header>-->
-<!--  		{%if request.user.is_authenticated %}-->
-<!--  			<span>Hi {{ request.user.username | title }}</span>-->
-<!--  			<a href="#">Logout</a>-->
-<!--  		{%else%}-->
-<!--  			<a href="{% url 'user:login' %}">Login</a>-->
-<!--  			<a href="{% url 'user:register' %}">Register</a>-->
-<!--  		{%endif%}-->
-<!--  	</header>-->
 
     <!-- Topbar Start -->
     <div class="container-fluid">
         <div class="row bg-secondary py-2 px-xl-5">
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center">
-                    <a class="text-dark" href="https://github.com/deokmin-kim/web_project_test/tree/test02">FAQs</a>
+                    <a class="text-dark" href="{% url 'order:notice_list' %}">FAQs</a>
                     <span class="text-muted px-2">|</span>
                     <a class="text-dark" href="https://github.com/deokmin-kim/web_project_test/tree/test02">Help</a>
                     <span class="text-muted px-2">|</span>

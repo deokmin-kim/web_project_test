@@ -1,0 +1,17 @@
+{% extends base.html %}
+{% load static %}
+
+{% block content %}
+<body>
+    <h1>공지사항</h1>
+    <ul>
+        {% for notice in notices %}
+            <li>
+                <h2>{{ notice.title }}</h2>
+                <p>{{ notice.content }}</p>
+                <p>{{ notice.created_at }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+{% endblock %}
