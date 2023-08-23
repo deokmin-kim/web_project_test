@@ -3,7 +3,6 @@ from .models import Product
 from django.db.models import Q
 from .forms import ProductForm
 from django.contrib import messages
-from django.core.paginator import Paginator
 
 def main_page(request): # main_page 함수는 웹사이트의 메인 페이지를 렌더링하는 부분입니다.
     products = Product.objects.all()
@@ -44,12 +43,11 @@ def contact_page(request):
 
 def shop_page(request):
     products = Product.objects.all()
-    paginator = Paginator(products, per_page=12)
-    page = paginator.get_page(page_number)
-    return render(request, 'product/shop.html', {'products': products}, {'page': page})
+    return render(request, 'product/shop.html', {'products': products})
 
-def shop_detail_page(request):
-    return render(request, 'product/detail.html')
+def shop_detail_page(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, 'product/detail.html', {'product': product})
 
 def search_results(request):
     query = request.GET.get('q')  # 검색어 가져오기
