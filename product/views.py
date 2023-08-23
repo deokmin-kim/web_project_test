@@ -5,7 +5,8 @@ from .forms import ProductForm
 from django.contrib import messages
 
 def main_page(request): # main_page 함수는 웹사이트의 메인 페이지를 렌더링하는 부분입니다.
-    return render(request, 'product/index.html')
+    products = Product.objects.all()
+    return render(request, 'product/index.html', {'products': products})
 
 def product_list(request): # product_list 함수는 모든 상품을 리스트 형태로 렌더링하는 부분입니다.
     products = Product.objects.all()
@@ -41,7 +42,8 @@ def contact_page(request):
     return render(request, 'product/contact.html')
 
 def shop_page(request):
-    return render(request, 'product/shop.html')
+    products = Product.objects.all()
+    return render(request, 'product/shop.html', {'products': products})
 
 def shop_detail_page(request):
     return render(request, 'product/detail.html')
