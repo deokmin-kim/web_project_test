@@ -45,8 +45,10 @@ def shop_page(request):
     products = Product.objects.all()
     return render(request, 'product/shop.html', {'products': products})
 
-def shop_detail_page(request):
-    return render(request, 'product/detail.html')
+def shop_detail_page(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, 'product/detail.html', {'product': product})
+
 
 def search_results(request):
     query = request.GET.get('q')  # 검색어 가져오기

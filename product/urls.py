@@ -12,7 +12,7 @@ urlpatterns = [
     path('list/<int:pk>/', views.product_detail, name='product-detail'),
     path('contact/', views.contact_page, name='contact'),
     path('shop/', views.shop_page, name='shop'),
-    path('shop_detail/', views.shop_detail_page, name='shop_detail'),
+    path('shop_detail/<int:pk>', views.shop_detail_page, name='shop_detail'),
     path('products/carousel/', views.product_carousel, name='product_carousel'),
     path('search/', views.search_results, name='results'),
     # 상품 목록 forms.py만들고 하려다 실패
