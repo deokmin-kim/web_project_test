@@ -42,8 +42,8 @@
                                 </td>
                                 <td class="align-middle">${{ cart_item.product.price }}</td>
                                 <td class="align-middle">
-                                    <div class="input-group quantity mx-auto" style="width: 100px;">
-                                        <!-- Input fields for quantity -->
+                                    <div class="input-group quantity mx-auto d-flex justify-content-center" style="width: 100px;">
+                                        {{ cart_item.quantity }}
                                     </div>
                                 </td>
                                 <td class="align-middle">${{ cart_item.total_price }}</td>
@@ -90,32 +90,7 @@
         </div>
     </div>
     <!-- Cart End -->
-    <!-- 0823 삭제버튼 동작 추가 필요없어짐-->
-    <!-- Confirm 버튼을 누른 경우, 서버에 해당 상품 삭제 요청을 보낼 수 있습니다.
-         예를 들어, jQuery.ajax 또는 fetch API를 사용하여 AJAX 요청을 보낼 수 있습니다.
-         이 코드에서는 fetch API를 사용하여 AJAX 요청을 보내는 방법을 보여드리겠습니다. -->
-<!--    <script>-->
-<!--    function confirmRemove(product_id) {-->
-<!--        if (confirm("Are you sure you want to remove this item from your cart?")) {-->
 
-<!--            fetch(`/cart/remove/${product_id}/`, {-->
-<!--                method: 'GET',-->
-<!--                credentials: 'same-origin',-->
-<!--            })-->
-<!--            .then(response => {-->
-<!--                if (response.ok) {-->
-<!--                    location.reload();-->
-<!--                } else {-->
-<!--                    alert("An error occurred while removing the item.");-->
-<!--                }-->
-<!--            })-->
-<!--            .catch(error => {-->
-<!--                console.error('Error:', error);-->
-<!--                alert("An error occurred while removing the item.");-->
-<!--            });-->
-<!--        }-->
-<!--    }-->
-<!--    </script>-->
 {% endblock %}
 </body>
 

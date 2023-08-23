@@ -27,15 +27,15 @@ def add_to_cart(request, product_id): # product_id는 URL에서 받아오는 상
 def cart_detail(request):
     user = request.user
     cart_items = CartItem.objects.filter(user=user)
-
+    cart_item_count = cart_items.count()
     # 0823 cartlist에 정적페이지 -> 동적페이지로 수정
     # 각 cart_item의 total_price를 계산하여 추가합니다.
     for cart_item in cart_items:
         cart_item.total_price = cart_item.product.price * cart_item.quantity
 
     total_price = sum(cart_item.total_price for cart_item in cart_items)
-
-    return render(request, 'cart/cart.html', {'cart_items': cart_items, 'total_price': total_price})
+    context = {'cart_items': cart_items, 'total_price': total_price, 'cart_item_count': cart_item_count}
+    return render(request, 'cart/cart.html', context)
 
 @login_required
 def checkout_cart(request): # main_page 함수는 웹사이트의 메인 페이지를 렌더링하는 부분입니다.

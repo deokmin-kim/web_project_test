@@ -3,15 +3,24 @@
 
 
 {% block content %}
-<h2>Search Results for "{{ query }}"</h2>
-<ul>
-    {% for product in products %}
-    <li>
-        <h3><a href="{% url 'product:product-detail' product.id %}">{{ product.name }}</a></h3>
-        <p>{{ product.description }}</p>
-    </li>
-    {% empty %}
-    <p>No results found.</p>
-    {% endfor %}
-</ul>
+<div class="container">
+    <h2 class="mt-4">Search Results for "{{ query }}"</h2>
+    <div class="row">
+        {% for product in products %}
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{% url 'product:product-detail' product.id %}">{{ product.name }}</a></h5>
+                        <p class="card-text">{{ product.description }}</p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col">
+                <p>No results found.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
 {% endblock %}
