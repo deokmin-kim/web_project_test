@@ -25,7 +25,7 @@ figure {
 }
 .form-submit {
     display: inline-block;
-    background: $blue-color;
+    background: $pink-color;
     color: #fff;
     border-bottom: none;
     width: auto;
@@ -34,7 +34,7 @@ figure {
     margin-top: 25px;
     cursor: pointer;
     &:hover {
-        background: darken($blue-color, 10%);
+        background: darken($pink-color, 10%);
     }
 }
 
@@ -112,7 +112,7 @@ input[type=checkbox]:not(old) + label > span{
   background-image :         linear-gradient(rgb(255,255,255),rgb(255,255,255 ));
   vertical-align   : bottom;
 }
-input[type=checkbox]:not(old):checked + label > span,{
+input[type=checkbox]:not(old):checked + label > span{
     background-image :    -moz-linear-gradient(rgb(255,255,255),rgb(255,255,255));
     background-image :     -ms-linear-gradient(rgb(255,255,255),rgb(255,255,255));
     background-image :      -o-linear-gradient(rgb(255,255,255),rgb(255,255,255));

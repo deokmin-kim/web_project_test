@@ -139,19 +139,24 @@
             </div>
             <!-- Shop Sidebar End -->
 
-
+            <!-- 0824 수정한 부분들 -->
             <!-- Shop Product Start -->
             <div class="col-lg-9 col-md-12">
                 <div class="row pb-3">
                     <div class="col-12 pb-1">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <form action="">
+                             <!-- 0824 수정 -->
+<!--                            <form action="">-->
+                            <form action="{% url 'product:index' %}" method="GET">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search by name">
+<!--                                    <input type="text" class="form-control" placeholder="Search by name">-->
+                                    <input type="text" class="form-control" name="search" placeholder="Search by name">
                                     <div class="input-group-append">
-                                        <span class="input-group-text bg-transparent text-primary">
+<!--                                        <span class="input-group-text bg-transparent text-primary">-->
+                                        <button class="btn btn-outline-primary" type="submit">
                                             <i class="fa fa-search"></i>
-                                        </span>
+<!--                                        </span>-->
+                                        </button>
                                     </div>
                                 </div>
                             </form>

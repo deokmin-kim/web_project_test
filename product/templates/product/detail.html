@@ -163,6 +163,13 @@
                     <div class="tab-pane fade show active" id="tab-pane-1">
                         <h4 class="mb-3">Product Description</h4>
                         <p>{{ product.description }}</p>
+                        <!-- 사이즈 잘되나 확인 -->
+                        <h4 class="mb-3">Product Sizes</h4>
+                        <ul>
+                            {% for size in product.sizes.all %}
+                            <li>{{ size.value }}</li>
+                            {% endfor %}
+                        </ul>
 
                     </div>
                     <div class="tab-pane fade" id="tab-pane-2">
