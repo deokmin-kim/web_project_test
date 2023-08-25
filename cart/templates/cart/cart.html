@@ -28,11 +28,12 @@
                             <th>Products</th>
                             <th>Price</th>
                             <th>Quantity</th>
+                            <th>Size</th>
                             <th>Total</th>
                             <th>Remove</th>
                         </tr>
                     </thead>
-                    <!-- 0823 tbody만 수정 + 맨 아래 script추가 -->
+                    <!-- 0823 tbody만 수정, 0825 size 코드 수정 -->
                     <tbody class="align-middle">
                         {% for cart_item in cart_items %}
                             <tr>
@@ -46,6 +47,7 @@
                                         {{ cart_item.quantity }}
                                     </div>
                                 </td>
+                                <td class="align-middle">{{ cart_item.size }}</td> <!-- 0825 코드 추가 -->
                                 <td class="align-middle">${{ cart_item.total_price }}</td>
                                 <td class="align-middle">
                                     <a href="{% url 'cart:remove_from_cart' cart_item.product.id %}" class="btn btn-sm btn-primary"><i class="fa fa-times"></i></a>

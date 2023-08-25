@@ -142,6 +142,7 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 
+LOGIN_URL = 'user:login'
 # 미디어 파일이 실제로 저장될 디렉토리 경로
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # models.py 파일의 image 필드 설정을 보면 upload_to='product/images/'로 되어 있습니다.

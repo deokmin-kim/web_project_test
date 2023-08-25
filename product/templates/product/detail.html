@@ -56,78 +56,40 @@
                 </div>
                 <h3 class="font-weight-semi-bold mb-4">{{ product.price }}</h3>
                 <p class="mb-4">상품설명란.</p>
+
+
+                <!-- 0825 수정 -->
+                <!-- 여기가 사이즈부분 -->
                 <div class="d-flex mb-3">
                     <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
-                    <form>
+                    <form method="post" action="{% url 'cart:add_to_cart' product.id %}">
+                        {% csrf_token %}
                         {% for size in product.sizes.all %}
                         <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="size-{{ forloop.counter }}" name="size">
+                            <input type="radio" class="custom-control-input" id="size-{{ forloop.counter }}" name="size" value="{{ size.value }}">
                             <label class="custom-control-label" for="size-{{ forloop.counter }}">{{ size.value }}</label>
                         </div>
                         {% endfor %}
-<!--                        <div class="custom-control custom-radio custom-control-inline">-->
-<!--                            <input type="radio" class="custom-control-input" id="size-2" name="size">-->
-<!--                            <label class="custom-control-label" for="size-2">250</label>-->
-<!--                        </div>-->
-<!--                        <div class="custom-control custom-radio custom-control-inline">-->
-<!--                            <input type="radio" class="custom-control-input" id="size-3" name="size">-->
-<!--                            <label class="custom-control-label" for="size-3">260</label>-->
-<!--                        </div>-->
-<!--                        <div class="custom-control custom-radio custom-control-inline">-->
-<!--                            <input type="radio" class="custom-control-input" id="size-4" name="size">-->
-<!--                            <label class="custom-control-label" for="size-4">270</label>-->
-<!--                        </div>-->
-<!--                        <div class="custom-control custom-radio custom-control-inline">-->
-<!--                            <input type="radio" class="custom-control-input" id="size-5" name="size">-->
-<!--                            <label class="custom-control-label" for="size-5">XL</label>-->
-<!--                        </div>-->
-                    </form>
-                </div>
-                <div class="d-flex mb-4">
-                    <p class="text-dark font-weight-medium mb-0 mr-3">Colors:</p>
-                    <form>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="color-1" name="color">
-                            <label class="custom-control-label" for="color-1">Black</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="color-2" name="color">
-                            <label class="custom-control-label" for="color-2">White</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="color-3" name="color">
-                            <label class="custom-control-label" for="color-3">Red</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="color-4" name="color">
-                            <label class="custom-control-label" for="color-4">Blue</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="color-5" name="color">
-                            <label class="custom-control-label" for="color-5">Green</label>
-                        </div>
-                    </form>
-                </div>
+                        <!-- 여기서부터 수량이랑 전송 -->
                 <div class="d-flex align-items-center mb-4 pt-2">
                     <div class="input-group quantity mr-3" style="width: 130px;">
                         <div class="input-group-btn">
-                            <button class="btn btn-primary btn-minus" >
-                            <i class="fa fa-minus"></i>
+                            <button type="button" class="btn btn-primary btn-minus" > <!-- type추가 -->
+                                <i class="fa fa-minus"></i>
                             </button>
                         </div>
-                        <input type="text" class="form-control bg-secondary text-center" value="1">
+                        <input type="text" class="form-control bg-secondary text-center" name="quantity" value="1"> <!-- name="quantity"추가 -->
                         <div class="input-group-btn">
-                            <button class="btn btn-primary btn-plus">
+                            <button type="button" class="btn btn-primary btn-plus"> <!-- type추가 -->
                                 <i class="fa fa-plus"></i>
                             </button>
                         </div>
                     </div>
-                    <form method="post" action="{% url 'cart:add_to_cart' product.id %}">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>Add to Cart</button>
-                    </form>
-<!--                    <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</button>-->
+                    <button type="submit" class="btn btn-primary px-3">Add to Cart</button>
                 </div>
+                    </form>
+                </div>
+                <!-- 0825 수정 끝부분 -->
 
                 <!-- share on -->
                 <div class="d-flex pt-2">
