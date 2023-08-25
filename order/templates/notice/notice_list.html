@@ -3,15 +3,24 @@
 
 {% block content %}
 <body>
-    <h1>공지사항</h1>
-    <ul>
-        {% for notice in notices %}
-            <li>
-                <h2>{{ notice.title }}</h2>
-                <p>{{ notice.content }}</p>
-                <p>{{ notice.created_at }}</p>
-            </li>
-        {% endfor %}
-    </ul>
+    <section class="section notice-section py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="section-title"><span class="px-2">공지사항</span></h2>
+            </div>
+            <!-- list -->
+            <ul class="list-group">
+                {% for notice in notices %}
+                <li class="list-group-item">
+                    <a href="{% url 'order:notice_detail' notice.id %}">{{ notice.title }}</a>
+                    <p class="mb-0">{{ notice.content }}</p>
+                    <small class="text-muted">{{ notice.created_at }}</small>
+                </li>
+                {% endfor %}
+            </ul>
+            <!-- list end -->
+
+        </div>
+    </section>
 </body>
 {% endblock %}

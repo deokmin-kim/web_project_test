@@ -147,10 +147,10 @@
                         <div class="d-flex align-items-center justify-content-between mb-4">
                              <!-- 0824 수정 -->
 <!--                            <form action="">-->
-                            <form action="{% url 'product:index' %}" method="GET">
+                            <form action="{% url 'product:results' %}" method="get">
                                 <div class="input-group">
 <!--                                    <input type="text" class="form-control" placeholder="Search by name">-->
-                                    <input type="text" class="form-control" name="search" placeholder="Search by name">
+                                    <input type="text" class="form-control" name="q" placeholder="Search by name">
                                     <div class="input-group-append">
 <!--                                        <span class="input-group-text bg-transparent text-primary">-->
                                         <button class="btn btn-outline-primary" type="submit">

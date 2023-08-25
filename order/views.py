@@ -52,3 +52,8 @@ def notice_list(request):
     notices = Notice.objects.all().order_by('-created_at')
     context = {'notices': notices}
     return render(request, 'notice/notice_list.html', context)
+
+def notice_detail(request, notice_id):
+    notice = get_object_or_404(Notice, pk=notice_id)
+    return render(request, 'notice/notice_detail.html', {'notice': notice})
+

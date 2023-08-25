@@ -25,12 +25,16 @@ def contact_page(request):
 
 def shop_page(request):  # product_list 함수는 모든 상품을 리스트 형태로 렌더링하는 부분입니다.
     products = Product.objects.all()
+
+    #paging
     items_per_page = 15  # 한 페이지에 보여줄 항목 수
     paginator = Paginator(products, items_per_page)
     page_number = request.GET.get('page')
     page = paginator.get_page(page_number)
     current_page = page.number
-    return render(request, 'product/shop.html', {'products': products, 'page': page, 'current_page': current_page})
+
+    context = {'products': products, 'page': page, 'current_page': current_page}
+    return render(request, 'product/shop.html', context)
     # Product.objects.all()은 데이터베이스에서 모든 Product 객체를 가져오는 쿼리를 수행합니다.
     # 이렇게 가져온 상품 객체들은 'product/shop_page.html' 템플릿에 'products'라는 이름으로 전달되어 렌더링됩니다.
 
