@@ -134,11 +134,7 @@ SASS_PROCESSOR_INCLUDE_DIRS = [
 ]
 SASS_OUTPUT_STYLE = 'compact'
 SASS_PRECISION = 8
-import os # 추가 
-# 추가
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+
 
 MEDIA_URL = '/media/'
 

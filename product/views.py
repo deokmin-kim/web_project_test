@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 
 def main_page(request): # main_page 함수는 웹사이트의 메인 페이지를 렌더링하는 부분입니다.
-    # products = Product.objects.all()
+    products = Product.objects.all()
     # return render(request, 'product/index.html', {'products': products})
     # 0824 수정
     search_query = request.GET.get('search')  # 검색어 가져오기
@@ -58,10 +58,6 @@ def search_results(request):
     context = {'products': products, 'query': query}
     return render(request, 'product/search.html', context)
 
-
-def product_carousel(request):
-    products = Product.objects.all()  # 상품 데이터 가져오기
-    return render(request, 'detail.html', {'products': products})
 
 def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
